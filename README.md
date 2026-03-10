@@ -1,61 +1,66 @@
-# 🔑 Passwordy
+# 🔑 Passwordy (Cross-Platform)
 
-**Passwordy** is a lightweight, command-line interface (CLI) password manager designed specifically for Linux users. It provides a fast and efficient way to store, retrieve, and manage credentials directly from the terminal while maintaining a layer of privacy through data encryption.
+**Passwordy** is a lightweight, cross-platform command-line interface (CLI) password manager. It allows you to store, retrieve, and manage credentials directly from your terminal on **Windows, macOS, and Linux** while maintaining local privacy through data encryption.
 
 ---
 
 ## 🚀 Features
 
-* **Automated Installation**: Includes a dedicated shell script to handle dependencies and system integration.
-* **Secure Storage**: Uses a Caesar Cipher (Key=3) to encrypt usernames, platform names, and passwords.
-* **Clipboard Integration**: Automatically copies requested passwords to the system clipboard using `xclip`.
-* **Session Management**: Implements a temporary session file in `/tmp/passwordy_session` to allow persistent access.
-* **Full CRUD Support**: Create accounts, add platforms, retrieve data, and edit passwords.
+* **Cross-Platform**: Works natively on Windows, macOS, and Linux.
+* **Universal Installation**: Simple setup via `pip`, making the tool available globally.
+* **Secure Storage**: Encrypts data using highly secure Fernet symmetric encryption before local storage.
+* **Clipboard Integration**: Uses `pyperclip` to securely copy passwords to the system clipboard.
+* **Session Management**: Implements temporary session handling using system-specific temp directories.
 
 ---
 
 ## 🛠️ Installation
 
-Follow these steps to set up **Passwordy** on your Linux system:
-
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Saif-Aldeen04/passwordy.git
-cd passwordy
+git clone https://github.com/Saif-Aldeen04/Passwordy.git
+cd Passwordy
 ```
 
-### 2. Run the Installer
+### 2. Install via Pip
+Install the tool and its dependencies (pyperclip, colorama, cryptography) globally:
 ```bash
-bash install.sh
+pip install .
 ```
+
 ---
+
 ## 📖 How to Use
-Once installed, you can launch the tool from any terminal:
+
+Launch the tool from any terminal window:
 ```bash
 passwordy
 ```
-**Core Commands**
-  - **Create Account / Login:** Set up your vault or access existing data.
-  - **Create New Password:** Store platform credentials (e.g., Facebook, Instagram).
 
-  - **Retrieve Password:** Search for a platform and copy its password to your clipboard.
+### Core Commands
+- **1) Login / Create Account**: Set up your master vault or access existing records.
+- **2) Create New Password**: Securely store credentials for different platforms.
+- **3) Retrieve Password**: Search for a platform to copy its password to your clipboard.
+- **4) Edit Password**: Update existing credentials within your vault.
 
-  - **Edit Password:** Update existing platform credentials.
+**Logout**: Run `passwordy logout` to clear the active session.
 
-  - **Logout:** Run `passwordy logout` to terminate the active session.
 ---
 
 ## 🏗️ Technical Architecture
-- **Directory:** All user data is stored in ~/.passwordy/.
 
-- **File Naming:** User files are named after their encrypted username.
+- **Storage**: Data is stored in the hidden `~/.passwordy/` directory.
+- **Security**: Data is encrypted using Fernet (AES-128 in CBC mode) with a dynamically generated master key securely stored on your device.
 
-- **Security Note:** This project uses a Caesar Cipher for educational purposes. It is not recommended for high-security production use.
 ---
+
 ## 📄 License
+
 This project is licensed under the MIT License.
 
 ---
+
 ## 👤 Author
-Saif Aldeen Wael Alsayed
+
+**Saif Aldeen Wael Alsayed**  
 3rd Year Student, Faculty of Computers and Information
