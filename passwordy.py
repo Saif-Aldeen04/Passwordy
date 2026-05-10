@@ -215,5 +215,11 @@ if __name__ == "__main__":
     try:
         main()
     except KeyboardInterrupt:
-        print() 
-        sys.exit()
+        # This catch-all ensures that on Windows/Linux, 
+        # Ctrl + C exits silently and returns to the prompt.
+        print("\n" + C.YELLOW + "Operation cancelled by user." + C.RESET)
+        try:
+            sys.exit(0)
+        except SystemExit:
+            # Forceful exit to prevent any lingering Windows threads
+            os._exit(0)
